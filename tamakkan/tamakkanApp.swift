@@ -5,13 +5,28 @@
 //  Created by Ghady Al Omar on 09/09/1447 AH.
 //
 
+//___FILEHEADER___
+
 import SwiftUI
+import SwiftData
 
 @main
-struct tamakkanApp: App {
+struct TamakanApp: App {
+    @StateObject private var recViewModel = RecViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-        }
+            
+                        GetStarted()
+                            .environmentObject(RecViewModel())
+//            recView()
+//                .environmentObject(recViewModel)
+        }.modelContainer(for: RecordingModel.self)
+//        WindowGroup {
+//            //GetStarted()
+//            GetStarted()
+//                .environmentObject(RecViewModel())
+//                //.environmentObject(recViewModel)
+//        }.modelContainer(for: RecordingModel.self)
     }
 }
+
